@@ -5,7 +5,8 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "serve": "node ./scripts/serve.js"
+    "serve": "node ./scripts/serve.js",
+    "dev": "nodemon bot.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -26,7 +27,8 @@
     "eslint-config-taller": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
-    "ngrok": "^3.1.0"
+    "ngrok": "^3.1.0",
+    "nodemon": "^1.18.6"
   },
   "repository": {
     "type": "git",
