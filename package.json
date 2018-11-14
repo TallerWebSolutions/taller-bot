@@ -2,12 +2,12 @@
   "name": "botkit-starter-slack",
   "version": "0.0.2",
   "description": "A starter kit for building a custom Slack bot with Botkit Studio",
-  "main": "bot.js",
+  "main": "build/server.js",
   "scripts": {
     "build": "babel src --out-dir build",
-    "start": "node bot.js",
+    "start": "node build/server.js",
     "serve": "node ./scripts/serve.js",
-    "dev": "nodemon bot.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -28,6 +28,7 @@
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^5.9.0",
     "eslint-config-taller": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -46,8 +47,9 @@
   "keywords": [
     "bots",
     "chatbots",
-    "slack"
+    "slack",
+    "taller"
   ],
-  "author": "ben@howdy.ai",
+  "author": "lucasconstantinosilva@gmail.com",
   "license": "MIT"
 }
