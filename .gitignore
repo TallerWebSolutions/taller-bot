@@ -1,6 +1,5 @@
 .data
 .db
 .env
+build
 node_modules
-components/routes/_*
-.sass-cache/*
