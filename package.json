@@ -2,25 +2,29 @@
   "name": "botkit-starter-slack",
   "version": "0.0.2",
   "description": "A starter kit for building a custom Slack bot with Botkit Studio",
-  "main": "build/server.js",
+  "main": "build/init.js",
   "scripts": {
     "build": "babel src --out-dir build",
-    "start": "node build/server.js",
+    "start": "node build/init.js",
     "serve": "node ./scripts/serve.js",
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "botkit": "^0.6.19",
     "botkit-storage-mongo": "^1.0.6",
     "botkit-studio-metrics": "^0.0.2",
+    "colors": "^1.3.2",
     "cookie-parser": "^1.4.3",
     "debug": "^2.3.3",
     "dotenv": "^6.1.0",
     "express": "^4.14.0",
     "express-hbs": "^1.0.4",
+    "figures": "^2.0.0",
     "querystring": "^0.2.0",
     "request": "^2.79.0",
+    "require-dir": "^1.1.0",
+    "signale": "^1.3.0",
     "wordfilter": "^0.2.6"
   },
   "devDependencies": {
@@ -33,6 +37,7 @@
     "eslint-config-taller": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-standard": "^4.0.0",
     "ngrok": "^3.1.0",
     "nodemon": "^1.18.6"
   },
