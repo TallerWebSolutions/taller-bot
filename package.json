@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir build",
     "start": "node build/init.js",
-    "serve": "node ./scripts/serve.js",
+    "online": "node ./scripts/online.js",
     "dev": "nodemon --exec babel-node src/init.js"
   },
   "dependencies": {
