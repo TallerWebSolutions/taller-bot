@@ -19,9 +19,21 @@ server.set('controller', controller)
 controller.server = server
 
 // Initialize all modules.
-requireDir(resolve(__dirname, './modules')).forEach(({ init }) =>
-  init ? init(server, controller) : null
-)
+requireDir(resolve(__dirname, './modules')).forEach(module => {
+  // "init" gives you complete access to both the server and the controller.
+  if (module.init) {
+    module.init(server, controller)
+  }
+
+  // "slash" facilitates declaration of slash commands.
+  if (module.slash) {
+    controller.on('slash_command', (command, message) =>
+      module.slash[message.command.replace('/', '')]
+        ? module.slash[message.command.replace('/', '')](command, message)
+        : null
+    )
+  }
+})
 
 // Initialize server.
 server.listen(env.PORT, () =>
