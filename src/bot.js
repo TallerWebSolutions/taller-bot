@@ -1,6 +1,7 @@
 import path from 'path'
 import Botkit from 'botkit'
 import { bold } from 'colors/safe'
+import botkitMongo from 'botkit-storage-mongo'
 
 import env from 'app/env'
 import logger from 'app/logger'
@@ -28,10 +29,7 @@ const config = {
 // Use a mongo database if specified, otherwise store in a JSON file local to the app.
 // Mongo is automatically configured when deploying to Heroku
 if (env.MONGO_URI) {
-  let mongoStorage = require('botkit-storage-mongo')({
-    mongoUri: env.MONGO_URI
-  })
-  config.storage = mongoStorage
+  config.storage = botkitMongo({ mongoUri: env.MONGO_URI })
 }
 else {
   config.json_file_store = path.resolve(__dirname, '../.data/db/')
