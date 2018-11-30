@@ -26,11 +26,17 @@ let tunnel = localtunnel(process.env.PORT, (err, tunnel) => {
   console.log(`Local tunnel running at ${tunnel.url}`)
 
   const registerHost = () =>
-    request.put({
-      baseUrl: proxyUrl,
-      url: '/set-host',
-      qs: { host: tunnel.url }
-    })
+    request.put(
+      {
+        baseUrl: proxyUrl,
+        url: '/set-host',
+        qs: { host: tunnel.url }
+      },
+      error =>
+        error
+          ? console.error('Could not claim proxy')
+          : console.log('Captured proxy')
+    )
 
   setInterval(registerHost, 10000)
 

@@ -14,6 +14,7 @@ const rawBody = (req, res, next) => {
 
 morgan.token('body', ({ body }) => JSON.stringify(body))
 
+// prettier-ignore
 export default express()
   .use(rawBody)
   .use(cookieParser())
